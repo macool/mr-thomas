@@ -1,0 +1,32 @@
+<h2><%= pluralize @subscriber.notifications.count, "notification" %></h2>
+
+<% if @subscriber.notifications.count > 0 %>
+  <table border=1 cellspacing=0 cellpadding=5>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Referrer</th>
+        <th>Parameters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @subscriber.notifications.each do |notification| %>
+        <tr>
+          <td>
+            <%= notification.created_at.strftime('%Y-%m-%d %H:%M') %>
+          </td>
+          <td>
+            <%= link_to notification.referrer, notification.referrer, target: "_blank" %>
+          </td>
+          <td>
+            <% notification.parameters.each do |key, value| %>
+              <div>
+                <strong><%= key %>:</strong> <%= value %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
