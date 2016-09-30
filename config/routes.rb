@@ -5,4 +5,7 @@ Rails.application.routes.draw do
                only: [:show, :create]
     end
   end
+  resource :keepalive,
+           controller: :keepalive
+  root to: 'keepalive#show'
 end
