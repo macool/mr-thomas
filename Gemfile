@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mongoid', '~> 5.1'
 gem 'rack-cors', require: 'rack/cors'
 gem 'airbrake', '~> 5.0'
+gem 'devise', '~> 4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
