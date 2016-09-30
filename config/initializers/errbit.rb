@@ -5,6 +5,4 @@ Airbrake.configure do |config|
 
   config.environment = Rails.env
   config.ignore_environments = %w(development test)
-  
-  config.ignore << "SignalException" # heroku's SIGTERM
 end
