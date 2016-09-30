@@ -26,6 +26,21 @@ class Subscriber
   before_validation :generate_token!,
                     if: :new_record?
 
+  def pretty_print
+    %Q{
+      name: #{name}
+      host: #{host}
+      recipient: #{recipient}
+      token: #{token}
+    }
+  end
+
+  def full_host
+    "http://#{host}"
+  end
+
+  private
+
   def generate_token!
     self.token = SecureRandom.hex
   end

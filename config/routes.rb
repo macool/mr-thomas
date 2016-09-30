@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resource :notification,
-           only: :create
+  namespace :api do
+    namespace :v1 do
+      resource :notification,
+               only: [:show, :create]
+    end
+  end
 end

@@ -1,0 +1,20 @@
+<div class="notification public-view">
+  <h1>Ups, algo salió mal</h1>
+  <p>Por favor vuelve a intentarlo</p>
+  <% if @notification.present? %>
+    <% if @notification.errors.any? %>
+      <div class="resource-errors">
+        <h3>Problemas encontrados:</h3>
+        <ul>
+          <% @notification.errors.each do |key, value| %>
+            <li><%= value %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= link_to "Volver al sitio anterior", @notification.referrer %>
+    </p>
+  <% end %>
+</div>

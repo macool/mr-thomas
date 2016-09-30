@@ -5,6 +5,6 @@
     recipient: "a@macool.me"
   }
 ].each do |attrs|
-  puts "creating subscriber #{attrs}"
-  Subscriber.create!(attrs)
+  subscriber = Subscriber.create(attrs)
+  puts "creating subscriber: #{subscriber.pretty_print}"
 end

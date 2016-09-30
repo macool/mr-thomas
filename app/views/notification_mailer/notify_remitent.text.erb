@@ -1,0 +1,5 @@
+Hola, alguien en el sitio <%= @subscriber.name %> <%= link_to @subscriber.host, @subscriber.full_host %> te envió una notificación:
+
+<% @notification.parameters.each do |key, value| %>
+  <%= key %>: <%= value %>
+<% end %>
