@@ -42,6 +42,6 @@ class Subscriber
   private
 
   def generate_token!
-    self.token = SecureRandom.hex
+    self.token = SecureRandom.hex(32)
   end
 end
