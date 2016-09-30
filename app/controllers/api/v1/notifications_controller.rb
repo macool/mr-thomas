@@ -39,7 +39,8 @@ module Api
         session[:notification_id] = nil # clear cache
         @notification = @subscriber.notifications.new(
           referrer: request.referrer,
-          parameters: permitted_params
+          parameters: permitted_params,
+          request_ip: request.remote_ip
         )
       end
 

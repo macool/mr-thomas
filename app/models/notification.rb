@@ -9,6 +9,7 @@ class Notification
   ]
 
   field :referrer
+  field :request_ip
   field :parameters, type: Hash
 
   belongs_to :subscriber
