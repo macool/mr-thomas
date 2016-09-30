@@ -1,6 +1,6 @@
 class KeepaliveController < ApplicationController
   def show
-    asset = Rails.application.assets["mr-thomas.png"]
-    send_file asset.filename, disposition: "inline"
+    filename = ActionController::Base.helpers.asset_path "mr-thomas.png"
+    send_file filename, disposition: "inline"
   end
 end
