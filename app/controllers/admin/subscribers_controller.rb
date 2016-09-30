@@ -1,7 +1,7 @@
 class Admin
   class SubscribersController < BaseController
     before_action :find_subscriber,
-                  only: [:show, :edit, :update, :destroy]
+                  only: [:show, :edit, :update, :destroy, :regenerate_token]
     def index
       @subscribers = Subscriber.all
     end
@@ -33,6 +33,12 @@ class Admin
       else
         render :edit
       end
+    end
+
+    def regenerate_token
+      @subscriber.regenerate_token!
+      redirect_to action: :show,
+                  id: @subscriber.id
     end
 
     def destroy

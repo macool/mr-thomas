@@ -20,5 +20,9 @@
 <% end %>
 
 <%= link_to "edit", edit_admin_subscriber_path(@subscriber) %>
+<%= link_to "regenerate token",
+            regenerate_token_admin_subscriber_path(@subscriber),
+            data: { confirm: 'Are you sure? All existing implementations will stop working' },
+            method: :post %>
 
 <%= render "notifications" %>

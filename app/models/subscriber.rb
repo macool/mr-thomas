@@ -39,6 +39,11 @@ class Subscriber
     "http://#{host}"
   end
 
+  def regenerate_token!
+    send :generate_token!
+    save!
+  end
+
   private
 
   def generate_token!
