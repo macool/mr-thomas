@@ -1,0 +1,18 @@
+<h1>Show <%= @subscriber.name %></h1>
+<p>
+  <strong>name:</strong>
+  <%= @subscriber.name %>
+</p>
+<p>
+  <strong>host:</strong>
+  <%= @subscriber.host %>
+</p>
+<p>
+  <strong>recipient:</strong>
+  <%= @subscriber.recipient %>
+</p>
+<p>
+  <strong>token:</strong>
+  <pre><%= @subscriber.token %></pre>
+</p>
+<%= link_to "edit", edit_admin_subscriber_path(@subscriber) %>

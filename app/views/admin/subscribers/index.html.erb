@@ -1,0 +1,27 @@
+<h1>Subscribers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>host</th>
+      <th>recipient</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscribers.each do |subscriber| %>
+      <tr>
+        <td><%= subscriber.name %></td>
+        <td><%= subscriber.host %></td>
+        <td><%= subscriber.recipient %></td>
+        <td>
+          <%= link_to "show", admin_subscriber_path(subscriber) %>
+          <%= link_to "edit", edit_admin_subscriber_path(subscriber) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New", new_admin_subscriber_path %>

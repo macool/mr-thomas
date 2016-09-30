@@ -1,0 +1,28 @@
+<% if @subscriber.errors.any? %>
+  <%= pluralize @subscriber.errors.count, "error" %>
+  <ul>
+    <% @subscriber.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [:admin, @subscriber] do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div>
+    <%= f.label :host %>
+    <%= f.text_field :host, required: true %>
+  </div>
+  <div>
+    <%= f.label :recipient %>
+    <%= f.text_field :recipient, required: true %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
