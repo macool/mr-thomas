@@ -54,6 +54,11 @@ module Api
           host: host,
           token: params[:token]
         )
+      rescue Mongoid::Errors::DocumentNotFound
+        render(
+          :error,
+          status: :unprocessable_entity
+        )
       end
 
       def host
