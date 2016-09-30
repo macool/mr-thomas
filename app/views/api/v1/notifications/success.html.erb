@@ -2,5 +2,5 @@
             class: "public-view" do %>
   <h1>¡Gracias por contactarnos!</h1>
   <p>Tu mensaje se ha enviado por correo electrónico</p>
-  <p><%= link_to "Volver al sitio anterior", @notification.referrer %></p>
+  <p><%= link_to "Regresar a #{@notification.referrer}", @notification.referrer %></p>
 <% end %>
