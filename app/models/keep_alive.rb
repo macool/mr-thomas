@@ -10,6 +10,15 @@ class KeepAlive
   validate :validate_not_blank
   after_create :update_subscriber_counter_cache!
 
+  def localhost?
+    host == 'localhost'
+  end
+
+  def host
+    return if referrer.blank?
+    @host ||= URI.parse(referrer).host
+  end
+
   private
 
   def validate_not_blank
@@ -25,14 +34,5 @@ class KeepAlive
         keepalives_count: 1
       )
     end
-  end
-
-  def localhost?
-    host == 'localhost'
-  end
-
-  def host
-    return if referrer.blank?
-    @host ||= URI.parse(referrer).host
   end
 end
