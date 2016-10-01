@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins
   namespace :admin do
     root to: 'subscribers#index'
+    resource :keepalives, only: :show
     resources :subscribers do
       member do
         post :regenerate_token

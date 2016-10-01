@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>At</th>
+      <th>Referrer</th>
+      <th>IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @keepalives.each do |keep_alive| %>
+      <tr>
+        <td><%= keep_alive.created_at %></td>
+        <td><%= keep_alive.referrer %></td>
+        <td><%= keep_alive.request_ip %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
