@@ -5,7 +5,7 @@
     <tr>
       <th>name</th>
       <th>host</th>
-      <th>recipient</th>
+      <th>kAs</th>
       <th></th>
     </tr>
   </thead>
@@ -14,7 +14,7 @@
       <tr>
         <td><%= subscriber.name %></td>
         <td><%= subscriber.host %></td>
-        <td><%= subscriber.recipient %></td>
+        <td><%= subscriber.keepalives_count %></td>
         <td>
           <%= link_to "show", admin_subscriber_path(subscriber) %>
           <%= link_to "edit", edit_admin_subscriber_path(subscriber) %>
