@@ -27,10 +27,17 @@ class KeepaliveController < ApplicationController
   # be sure to call #new_client? ONLY
   # before #set_client!
   def new_client?
+    return false if admin_in_session?
     in_session = session.fetch(host_uid, nil)
     in_session.blank? || (
       Time.parse(in_session) < 1.hour.ago
     )
+  end
+
+  ##
+  # do not log admin's requests
+  def admin_in_session?
+    session.fetch("warden.user.admin.key", nil).present?
   end
 
   def set_client!
