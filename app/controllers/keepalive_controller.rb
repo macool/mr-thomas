@@ -9,9 +9,10 @@ class KeepaliveController < ApplicationController
   private
 
   def log_keepalive!
-    KeepAlive.create!(
+    keep_alive = KeepAlive.new(
       referrer: request.referrer,
       request_ip: request.remote_ip
     )
+    keep_alive.save unless keep_alive.localhost?
   end
 end

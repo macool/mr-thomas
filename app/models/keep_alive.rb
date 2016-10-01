@@ -20,12 +20,19 @@ class KeepAlive
   end
 
   def update_subscriber_counter_cache!
-    return if referrer.blank?
-    host = URI.parse(referrer).host
     if Subscriber.where(host: host).exists?
       Subscriber.find_by(host: host).inc(
         keepalives_count: 1
       )
     end
+  end
+
+  def localhost?
+    host == 'localhost'
+  end
+
+  def host
+    return if referrer.blank?
+    @host ||= URI.parse(referrer).host
   end
 end
