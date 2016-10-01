@@ -1,3 +1,5 @@
+require 'uri'
+
 module Api
   module V1
     class NotificationsController < ApplicationController

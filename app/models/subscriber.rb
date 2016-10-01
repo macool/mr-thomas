@@ -7,6 +7,7 @@ class Subscriber
   field :host
   field :token
   field :recipient
+  field :keepalives_count, Integer, default: 0
 
   index(
     { token: 1 },
@@ -16,10 +17,10 @@ class Subscriber
   has_many :notifications
 
   validates :token,
+            :host,
             presence: true,
             uniqueness: true
   validates :name,
-            :host,
             :recipient,
             presence: true
 
