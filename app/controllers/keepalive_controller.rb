@@ -27,17 +27,20 @@ class KeepaliveController < ApplicationController
   # be sure to call #new_client? ONLY
   # before #set_client!
   def new_client?
-    host_in_session = session.fetch(
-      "host_#{@keep_alive.host}", nil
-    )
-    host_in_session.blank? || (
-      Time.parse(host_in_session) < 1.hour.ago
+    in_session = session.fetch(host_uid, nil)
+    in_session.blank? || (
+      Time.parse(in_session) < 1.hour.ago
     )
   end
 
   def set_client!
-    session[
-      "host_#{@keep_alive.host}"
-    ] = Time.now.to_s
+    session[host_uid] = Time.now.to_s
+  end
+
+  ##
+  # unique for each host
+  # used in session
+  def host_uid
+    "host_#{@keep_alive.host}"
   end
 end
