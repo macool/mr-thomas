@@ -10,6 +10,9 @@ class Subscriber
   field :keepalives_count,
         type: Integer,
         default: 0
+  field :require_recaptcha,
+        type: Boolean,
+        default: true
 
   index(
     { token: 1 },

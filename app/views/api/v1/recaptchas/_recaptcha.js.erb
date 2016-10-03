@@ -1,0 +1,25 @@
+(function () {
+  var Recaptcha = function () {
+    this.recaptchaKey = '<%= @recaptcha_key %>';
+  };
+
+  Recaptcha.prototype.initialize = function () {
+    this.setGRecaptchaKey();
+    this.loadGRecaptcha();
+  };
+
+  Recaptcha.prototype.setGRecaptchaKey = function () {
+    var node = document.getElementsByClassName('g-recaptcha')[0];
+    node.setAttribute('data-sitekey', this.recaptchaKey);
+  };
+
+  Recaptcha.prototype.loadGRecaptcha = function () {
+    var script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.async = 'async';
+    script.defer = 'defer';
+    document.body.append(script);
+  };
+
+  (new Recaptcha()).initialize();
+})();

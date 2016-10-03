@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
+      resource :recaptcha,
+               only: :show
       resource :notification,
                only: [:show, :create]
     end

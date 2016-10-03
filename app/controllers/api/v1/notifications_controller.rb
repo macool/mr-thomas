@@ -42,7 +42,8 @@ module Api
         @notification = @subscriber.notifications.new(
           referrer: request.referrer,
           parameters: permitted_params,
-          request_ip: request.remote_ip
+          request_ip: request.remote_ip,
+          g_recaptcha_response: params["g-recaptcha-response"]
         )
       end
 

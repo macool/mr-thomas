@@ -29,4 +29,11 @@
             data: { confirm: 'Are you sure? All existing implementations will stop working' },
             method: :post %>
 
+<h2>How to add?</h2>
+<ol>
+  <li>Use keepalive</li>
+  <li>Use recaptcha (if required) (and add g-recaptcha element to form)</li>
+  <li>Point form action and set token inside it</li>
+</ol>
+
 <%= render "notifications" %>
