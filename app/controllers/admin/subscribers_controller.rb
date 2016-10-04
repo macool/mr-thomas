@@ -57,7 +57,8 @@ class Admin
             .permit(
               :name,
               :host,
-              :recipient
+              :recipient,
+              :require_recaptcha
             )
     end
   end

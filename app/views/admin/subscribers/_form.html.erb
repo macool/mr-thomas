@@ -23,6 +23,10 @@
     <%= f.text_field :recipient, required: true %>
   </div>
   <div>
+    <%= f.label :require_recaptcha %>
+    <%= f.check_box :require_recaptcha %>
+  </div>
+  <div>
     <%= f.submit %>
   </div>
 <% end %>
