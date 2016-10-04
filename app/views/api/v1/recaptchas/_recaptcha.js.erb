@@ -1,7 +1,5 @@
 (function () {
-  var Recaptcha = function () {
-    this.recaptchaKey = '<%= @recaptcha_key %>';
-  };
+  var Recaptcha = function () {};
 
   Recaptcha.prototype.initialize = function () {
     this.setGRecaptchaKey();
@@ -10,7 +8,7 @@
 
   Recaptcha.prototype.setGRecaptchaKey = function () {
     var node = document.getElementsByClassName('g-recaptcha')[0];
-    node.setAttribute('data-sitekey', this.recaptchaKey);
+    node.setAttribute('data-sitekey', '<%= @recaptcha_key %>');
   };
 
   Recaptcha.prototype.loadGRecaptcha = function () {
