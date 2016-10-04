@@ -10,6 +10,10 @@
     <%= @subscriber.host %>
   </p>
   <p>
+    <strong>require_recaptcha:</strong>
+    <%= @subscriber.require_recaptcha? ? 'Yes' : 'No' %>
+  </p>
+  <p>
     <strong>recipient:</strong>
     <%= @subscriber.recipient %>
   </p>
