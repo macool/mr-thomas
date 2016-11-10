@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'subscribers#index'
     resource :keepalives, only: :show
+    resources :admins, only: :index
     resources :subscribers do
       member do
         post :regenerate_token
