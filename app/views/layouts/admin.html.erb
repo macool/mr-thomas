@@ -2,14 +2,21 @@
 <html>
 <head>
   <title>thomas</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-green.min.css" /> 
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <%= render 'layouts/admin_menu' %>
-  <%= yield %>
-
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<%= render "admin/elements/nav" %>
+	<main class="mdl-layout__content">
+	  <div class="page-content">
+  		<%= yield %>
+	  </div>
+	</main>
+  </div>
 </body>
 </html>
