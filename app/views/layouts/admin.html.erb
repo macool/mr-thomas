@@ -10,13 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-	  <%= render "admin/elements/nav" %>
-	  <main class="mdl-layout__content">
-	    <div class="page-content">
-  			<%= yield %>
-	    </div>
-	  </main>
-	</div>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<%= render "admin/elements/nav" %>
+	<main class="mdl-layout__content">
+	  <div class="page-content">
+  		<%= yield %>
+	  </div>
+	</main>
+  </div>
 </body>
 </html>
