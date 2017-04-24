@@ -40,7 +40,7 @@ module Api
       def new_notification
         session[:notification_id] = nil # clear cache
         @notification = @subscriber.notifications.new(
-          referrer: request.referrer,
+          referrer: referrer,
           parameters: permitted_params,
           request_ip: request.remote_ip,
           g_recaptcha_response: params["g-recaptcha-response"]
@@ -66,7 +66,11 @@ module Api
       end
 
       def host
-        URI.parse(request.referrer).host
+        URI.parse(referrer).host
+      end
+      
+      def referrer
+        request.referrer.presence || request.headers["HTTP_ORIGIN"]
       end
     end
   end
