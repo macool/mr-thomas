@@ -5,11 +5,9 @@
   te envió una notificación:
 </p>
 
-<p>
-  <% @notification.parameters.each do |key, value| %>
-    <div>
-      <strong><%= key %>:</strong>
-      <%= value %>
-    </div>
-  <% end %>
-</p>
+<% @notification.parameters.each do |key, value| %>
+  <div>
+    <strong><%= key %>:</strong>
+    <span style="white-space: pre-line;"><%= value %></span>
+  </div>
+<% end %>
